@@ -1,7 +1,7 @@
 module.exports = {
   prefix: "~", // Bot Prefix
   token: "", // Discord Bot Token
-  logChannel: 0, // Channel ID for bot logs to go (number)
+  logChannel: 0, // Channel ID for Bot Logs (Make a Pull Request if you add it to sendError.js)
   levels: {
     User: {
       Roles: [],
