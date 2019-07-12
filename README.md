@@ -1,8 +1,8 @@
-##Discord Bot Framework
+## Discord Bot Framework
 
 `Bot Framework for individual use only`
 
-###Syntax: [Discord.js](https://discord.js.org)
+### Syntax: [Discord.js](https://discord.js.org)
 
 - Commands based on Roles
 - Lock role checking to specific server for Multi-Server Use
@@ -10,14 +10,14 @@
 - Eval Command with safeguard on Bot Token (Eval Disabled by Default)
 
 
-###Eval Command Restrictions
+### Eval Command Restrictions
 
 **All functionality of the eval command may be modified by the bot owner**
 - Eval may not execute any command containing the Client and Token
 - Some functions are unavailable unless defined in `eval.js`
 - Eval is unable to execute commands containing `@everyone` or `@here`
 
-###Role Configuration Example
+### Role Configuration Example
 
 ```javascript
 levels: {
