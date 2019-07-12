@@ -4,6 +4,7 @@ const { Client, RichEmbed } = require('discord.js');
 const client = new Client();
 const config = require('./config.js');
 const token = config.token;
+const prefix = config.prefix;
 const fs = require('file-system');
 
 const modules = {
@@ -12,23 +13,10 @@ const modules = {
   sendEmbed: require('./modules/sendEmbed.js')
 }
 
-// Configuration
-var prefix = config.prefix;
-
-
-// Functions
-function isCommand(cmdae){
-  fs.readdirSync('./commands/').forEach(file => {
-    if(file == cmdae+'.js'){
-      return true;
-    }
-  });
-  return false;
-}
-
-
 client.on('ready', () => {
-  // Any code to run when the bot is finished loading up on Discord
+  const replaceString = "*";
+  const newToken = `${token.substring(1,10)}${replaceString.repeat(token.length-(30))}${token.substring(token.length-20)}`
+  console.log(`Connected to Discord API as ${client.user.tag} with token ${newToken}`);
 });
 
 client.on('message', (message) => {
@@ -36,10 +24,10 @@ client.on('message', (message) => {
   if(message.content.indexOf(prefix) !== 0) return;
   var args = message.content.slice(prefix.length).trim().split(/ +/g);
   var command = args.shift().toLowerCase();
-  if(message.channel.type == ("dm" || "group")){modules.sendError(1,"Cannot respond in DMs",message)}
+  if(message.channel.type == ("dm" || "group")){modules.sendError(1,"Unable to respond in Direct and Group Messages.",message); return};
   try{
     fs.readdirSync('./commands/').forEach(file => {
-      if(file == command+'.js'){
+      if(file == `${command}.js`){
         var commandModule = require(`./commands/${command}.js`);
         var level = modules.userLevel.getLevel(message);
         if(typeof(level) != ('number')){modules.sendError(1,"Unable to Verify Level\nRecieved: "+level,message); return;};
@@ -48,7 +36,7 @@ client.on('message', (message) => {
       }
     });
   }catch(err){
-    modules.sendError(1,err.stack+'\n\n**Please send this error to a bot developer or administrator.**',message);
+    modules.sendError(1,`${err.stack}\n\n**Please send this error to a bot developer or administrator.**`,message);
   }
 });
 
