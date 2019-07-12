@@ -9,7 +9,7 @@ const fs = require('file-system');
 
 const modules = {
   userLevel: require('./modules/userLevel.js'),
-  sendError: require('./modules/sendError.js'), // 1: Respond; 2: Server Log
+  sendError: require('./modules/sendError.js'), // 1: Respond; 2: Server Log (Incomplete. See config.js)
   sendEmbed: require('./modules/sendEmbed.js')
 }
 
