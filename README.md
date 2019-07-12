@@ -5,7 +5,6 @@
 ### Syntax: [Discord.js](https://discord.js.org)
 
 - Commands based on Roles
-- Lock role checking to specific server for Multi-Server Use
 - Help command with command exclusion
 - Eval Command with safeguard on Bot Token (Eval Disabled by Default)
 
