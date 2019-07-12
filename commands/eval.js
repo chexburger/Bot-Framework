@@ -24,7 +24,7 @@ module.exports = {
       const args = msg.content.split(" ").slice(1);
       const code = args.join(" ");
       if((msg.content.includes("token") && (msg.content.includes("client") || msg.content.includes("config"))) || msg.content.includes("@everyone") || msg.content.includes("@here")){
-        msg.reply("Sorry, a prohibited action was detected. I cannot proceed with this request.")
+        msg.reply("A prohibited action was detected. This request cannot be completed.")
       }else{
         let evaled = eval(code);
         if(typeof(evaled) !== "string"){
