@@ -19,12 +19,6 @@ module.exports = {
   getLevel: function(message){
     const dId = Number(message.author.id);
     var roles = message.member.roles;
-    if(config.levelServerLock != null){
-      const guild = client.guilds.get(String(config.levelServerLock));
-      guild.members.fetch(message.author).then(member => {
-        roles = member.roles;
-      });
-    }
     var highestLevel = 0;
     for(var levelName in config.levels){ // Get each level from Levels
       var sLevel = config.levels[levelName]; // The object containing information for each level

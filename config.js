@@ -2,7 +2,6 @@ module.exports = {
   prefix: "~", // Bot Prefix
   token: "", // Discord Bot Token
   logChannel: 0, // Channel ID for bot logs to go (number)
-  levelServerLock: null, // Guild ID or null - Recommended
   levels: {
     User: {
       Roles: [],
