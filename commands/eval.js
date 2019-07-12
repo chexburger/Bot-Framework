@@ -17,7 +17,7 @@ module.exports = {
     help: 'Executes specified code. Can run javascript and bot functions. Constrained to eval.js Module.',
     usage: '',
     doNotDocument: true,
-    level: Number.MAX_SAVE_INTEGER, // MAX_SAVE_INTEGER Disables Command unless a level of equal value
+    level: 9999999999, // Change to Role level to use
   },
   fn: function(msg,client){
     try{
