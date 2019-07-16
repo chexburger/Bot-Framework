@@ -44,3 +44,9 @@ levels: {
   },
 }
 ```
+---
+### Legal
+Licensing can be found [here](https://github.com/chexburger/Bot-Framework/blob/master/LICENSE.md).
+
+---
+"Discord", "Discord App", and associated logos are registered trademarks of Discord, inc.
