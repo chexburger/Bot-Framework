@@ -34,7 +34,7 @@ module.exports = {
         }
       }
     }catch(err){
-      sendError(1,`\`\`\`xl\n${clean(err)}\n\`\`\``,msg);
+      sendError(1,`\`\`\`xl\n${clean(err)}\n\`\`\``,msg); // Backslash Escape Character: ```cleaned error```
     }
   }
 }
