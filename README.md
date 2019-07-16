@@ -1,4 +1,5 @@
 ## Discord Bot Framework
+###A modular approach to personal use Discord bot development
 
 `Bot Framework for individual use only`
 
@@ -11,7 +12,7 @@
 ---
 ### Eval Command Restrictions
 **All functionality of the eval command may be modified by the bot owner**
-- Eval may not execute any command containing the Client and Token
+- Eval may not execute any function that may contain the bot token
 - Some functions are unavailable unless defined in `eval.js`
 - Eval is unable to execute commands containing `@everyone` or `@here`
 
