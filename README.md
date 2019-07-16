@@ -4,7 +4,7 @@
 `Bot Framework for individual use only`
 
 ### *IMPORTANT NOTICES*
-In order to run this bot, Node.js must be installed on the host machine.
+In order to run this bot, [Node.js]('https://nodejs.org') must be installed on the host machine.
 Most online hosts will reinstall Node Package Manager (npm) upon launching the bot.
 Self-hosting requires manual installation of the Node Packages through the command `npm install`.
 **Discord Terms of Service __Prohibit__ usage of user account modification. Often called self-bots. Automate Personal Accounts at own Risk**
@@ -30,7 +30,7 @@ levels: {
   User: {
     Roles: [],
     ID: 0, // Default Level, Do Not Modify
-    UsersInLevel: []
+    UsersInLevel: [] // Manual addition of users will not override higher levels
   },
   Member: {
     Roles: ["Member"],
