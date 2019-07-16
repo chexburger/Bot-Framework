@@ -1,8 +1,15 @@
 ## Discord Bot Framework
-###A modular approach to personal use Discord bot development
+### A modular approach to personal use Discord bot development
 
 `Bot Framework for individual use only`
 
+### *IMPORTANT NOTICES*
+In order to run this bot, Node.js must be installed on the host machine.
+Most online hosts will reinstall Node Package Manager (npm) upon launching the bot.
+Self-hosting requires manual installation of the Node Packages through the command `npm install`.
+**Discord Terms of Service __Prohibit__ usage of user account modification. Often called self-bots. Automate Personal Accounts at own Risk**
+
+---
 ### Syntax: [Discord.js](https://discord.js.org)
 
 - Commands based on Roles
