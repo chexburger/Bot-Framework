@@ -41,7 +41,7 @@ module.exports = {
     }
       // Code executed after all above code. Used to tell bot.js the permission level.
     // if(typeof(highestLevel) != ('number')){throw("highestLevel invalid value. Currently: "+highestLevel+" ("+typeof(highestLevel)+")");};
-    if(tyoeof(highestLevel) != ('number')){highestLevel = 0; throw(`highestLevel invalid value. Currently: ${highestLevel} (${typeof(highestLevel)})`)};
+    if(typeof(highestLevel) != ('number')){highestLevel = 0; throw(`highestLevel invalid value. Currently: ${highestLevel} (${typeof(highestLevel)})`)};
     return highestLevel; // Returns User Level. highestLevel or 0
   }
 }
