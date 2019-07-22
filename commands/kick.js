@@ -1,6 +1,8 @@
 // kick.js
 // Default Moderation Command
 
+const config = require('../config.js');
+
 module.exports = {
   meta: {
     help: 'Kicks specified user from the guild',
@@ -9,6 +11,7 @@ module.exports = {
     level: 9999999999, // Change to Role level to use
   },
   fn: function(msg){
+    const prefix = config.prefix;
     const args = msg.content.slice(prefix.length).trim().split(/ +/g);
     const user = msg.mentions.users.first();
     if(user){
