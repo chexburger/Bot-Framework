@@ -12,8 +12,9 @@ module.exports = {
   },
   fn: function(msg){
     const user = msg.mentions.users.first();
-    const reason = msg.substring(config.prefix.length+4+2,msg.content.length);
-    // prefix + kick + spacing
+    const args = msg.content.slice(config.prefix.length).trim().split(/ +/g);
+    const reason = msg.content.substring(config.prefix.length+4+2+args[1].length,msg.content.length);
+    // prefix + kick + spacing + tag
     if(user){
       const member = msg.guild.member(user);
       if(member){
