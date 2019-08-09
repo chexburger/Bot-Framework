@@ -25,6 +25,7 @@ module.exports = {
       var roleLevel = sLevel.ID;
       for(var i=0; i < sLevel.Roles.length; i++){
         var roleae = sLevel.Roles[i]; // The name of the role
+        if(typeof(roleae) == 'undefined' or null){console.log("Invalid Role"); return};
         if(roles.has(getIdFromRoleName(roleae,message))){
           if (roleLevel > highestLevel){
             highestLevel = roleLevel;
