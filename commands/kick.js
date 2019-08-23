@@ -8,16 +8,16 @@ module.exports = {
     help: 'Kicks specified user from the guild',
     usage: '@user reason',
     doNotDocument: false,
-    level: 3, // Change to Role level to use
+    level: 99999, // Change to Role level to use
   },
   fn: function(msg){
     const user = msg.mentions.users.first();
     const args = msg.content.slice(config.prefix.length).trim().split(/ +/g);
-    const reason = msg.content.substring(config.prefix.length+4+2+args[1].length,msg.content.length);
     // prefix + kick + spacing + tag
     if(user){
       const member = msg.guild.member(user);
       if(member){
+          const reason = msg.content.substring(config.prefix.length+4+2+args[1].length,msg.content.length);
           member.kick(`${reason}` || `No Reason Provided`).then(() => {
           msg.reply(`Successfully Kicked ${user.tag}`);
         }).catch(err => {
