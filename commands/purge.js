@@ -1,6 +1,8 @@
 // purge.js
 // Default Moderation Command
 
+const config = require('../config.js');
+
 module.exports = {
   meta: {
     help: 'Mass delete a specified amount of Messages',
