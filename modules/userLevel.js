@@ -7,8 +7,12 @@ const config = require('../config.js');
 
 function getIdFromRoleName(roleName,message){
   if(typeof(roleName) == "string"){
-    var rolee = message.guild.roles.find(role => role.name == roleName);
-    return rolee.id;
+    try{
+      var rolee = message.guild.roles.find(role => role.name == roleName);
+      return rolee.id;
+    }catch(error){
+      return 0;
+    }
   }else{
     throw("getIdFromRoleName Error. Typeof roleName is not String.");
     return 0;
@@ -26,10 +30,14 @@ module.exports = {
       for(var i=0; i < sLevel.Roles.length; i++){
         var roleae = sLevel.Roles[i]; // The name of the role
         if(typeof(roleae) == 'undefined' || null){console.log("Invalid Role"); return};
-        if(roles.has(getIdFromRoleName(roleae,message))){
-          if (roleLevel > highestLevel){
-            highestLevel = roleLevel;
+        try{
+          if(roles.has(getIdFromRoleName(roleae,message))){
+            if (roleLevel > highestLevel){
+              highestLevel = roleLevel;
+            }
           }
+        }catch(error){
+          console.error(error);
         }
       }
       for(var e=0; e < sLevel.UsersInLevel.length; e++){
