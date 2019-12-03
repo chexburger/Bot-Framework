@@ -9,7 +9,7 @@ const fs = require('file-system');
 
 const modules = {
   userLevel: require('./modules/userLevel.js'),
-  sendError: require('./modules/sendError.js'), // 1: Respond; 2: Server Log (Incomplete. See config.js)
+  sendError: require('./modules/sendError.js'), // 1: Respond; 2: Server Log
   sendEmbed: require('./modules/sendEmbed.js')
 }
 
@@ -24,12 +24,14 @@ client.on('message', (message) => {
   if(message.content.indexOf(prefix) !== 0) return;
   var args = message.content.slice(prefix.length).trim().split(/ +/g);
   var command = args.shift().toLowerCase();
-  if(message.channel.type == ("dm" || "group")){modules.sendError(1,"Unable to respond in Direct and Group Messages.",message); return};
+  if(config.serverConfiguration == 0){
+    if(message.channel.type == ("dm" || "group")){modules.sendError(1,"Unable to respond in Direct and Group Messages: Unable to get Roles",message); return};
+  }
   try{
     fs.readdirSync('./commands/').forEach(file => {
       if(file == `${command}.js`){
         var commandModule = require(`./commands/${command}.js`);
-        var level = modules.userLevel.getLevel(message);
+        var level = modules.userLevel.getLevel(message,client);
         if(typeof(level) != ('number')){modules.sendError(1,"Unable to Verify Level\nRecieved: "+level,message); return;};
         if(level < commandModule.meta.level){modules.sendError(1,"Lacking Required Permissions\nYour Level: "+level,message); return;};
         commandModule.fn(message,client);
