@@ -1,5 +1,6 @@
 const { Client, RichEmbed } = require('discord.js');
 const config = require('../config.js');
+const logChannel = config.logChannel;
 
 const sendError = function(type,err,message){
   const embed = new RichEmbed()
@@ -10,8 +11,16 @@ const sendError = function(type,err,message){
     message.channel.send(embed);
   }
   if (type == 2){
-    console.warn("sendError for specific channel unavailable.");
-    // Use config to send log to specific channel.
+    if(!logChannel || logChannel == 0){
+      consile.warn("sendError for specific channel unavailable");
+      return false;
+    }
+    try{
+      var channel = client.channels.get(String(logChannel));
+      channel.send(embed);
+    }catch(error){
+      console.warn("Unable to get channel for logging");
+    }
   }
 }
 
