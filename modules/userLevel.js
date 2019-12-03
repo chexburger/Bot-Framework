@@ -3,12 +3,12 @@
 
 const sendError = require('../modules/sendError.js');
 const config = require('../config.js');
+const server = config.serverConfiguration;
 
-
-function getIdFromRoleName(roleName,message){
+function getIdFromRoleName(roleName,guild){
   if(typeof(roleName) == "string"){
     try{
-      var rolee = message.guild.roles.find(role => role.name == roleName);
+      var rolee = guild.roles.find(role => role.name == roleName);
       return rolee.id;
     }catch(error){
       return 0;
@@ -20,7 +20,7 @@ function getIdFromRoleName(roleName,message){
 }
 
 module.exports = {
-  getLevel: function(message){
+  getLevel: function(message,client){
     const dId = Number(message.author.id);
     var roles = message.member.roles;
     var highestLevel = 0;
@@ -31,7 +31,13 @@ module.exports = {
         var roleae = sLevel.Roles[i]; // The name of the role
         if(typeof(roleae) == 'undefined' || null){console.log("Invalid Role"); return};
         try{
-          if(roles.has(getIdFromRoleName(roleae,message))){
+          var target;
+          if(server && server !== 0){
+            target = client.guilds.get(String(server));
+          }else{
+            target = message.guild
+          }
+          if(roles.has(getIdFromRoleName(roleae,target))){ //roleae,message
             if (roleLevel > highestLevel){
               highestLevel = roleLevel;
             }
