@@ -22,7 +22,10 @@ function getIdFromRoleName(roleName,guild){
 module.exports = {
   getLevel: function(message,client){
     const dId = Number(message.author.id);
-    var roles = message.member.roles;
+    // var roles = message.member.roles;
+    const guild = client.guilds.get(config.guildString) || msg.guild;
+    var guildMember = guild.members.get(message.author.id);
+    var roles = guildMember.roles;
     var highestLevel = 0;
     for(var levelName in config.levels){ // Get each level from Levels
       var sLevel = config.levels[levelName]; // The object containing information for each level
