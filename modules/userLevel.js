@@ -23,7 +23,7 @@ module.exports = {
   getLevel: function(message,client){
     const dId = Number(message.author.id);
     // var roles = message.member.roles;
-    const guild = client.guilds.get(config.serverConfiguration.toString()) || msg.guild;
+    const guild = client.guilds.get(config.serverConfiguration.toString()) || message.guild;
     var guildMember = guild.members.get(message.author.id);
     var roles = guildMember.roles;
     var highestLevel = 0;
