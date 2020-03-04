@@ -1,5 +1,5 @@
 {
-  "name": "docal-bot",
+  "name": "bot-framework",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chexburger/DOCAL-Bot.git"
+    "url": "git+https://github.com/chexburger/Bot-Framework.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/chexburger/DOCAL-Bot/issues"
+    "url": "https://github.com/chexburger/Bot-Framework/issues"
   },
-  "homepage": "https://github.com/chexburger/DOCAL-Bot#readme",
+  "homepage": "https://github.com/chexburger/Bot-Framework#readme",
   "dependencies": {
     "discord.js": "^11.5.1",
     "file-system": "^2.2.2",
