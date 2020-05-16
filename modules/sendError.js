@@ -11,12 +11,12 @@ const sendError = function(type,err,message){
     message.channel.send(embed);
   }
   if (type == 2){
-    if(!logChannel || logChannel == 0){
+    if(!logChannel || logChannel == ""){
       consile.warn("sendError for specific channel unavailable");
       return false;
     }
     try{
-      var channel = client.channels.get(String(logChannel));
+      var channel = client.channels.get(logChannel);
       channel.send(embed);
     }catch(error){
       console.warn("Unable to get channel for logging");
