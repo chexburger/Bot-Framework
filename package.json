@@ -2,7 +2,7 @@
   "name": "bot-framework",
   "version": "1.1.0",
   "description": "`Bot Framework for individual use only`",
-  "main": "index.js",
+  "main": "bot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,12 +18,14 @@
   "homepage": "https://github.com/chexburger/Bot-Framework#readme",
   "dependencies": {
     "discord.js": "^11.5.1",
-    "file-system": "^2.2.2",
+    "file-system": "^2.2.2"
   },
   "devDependencies": {},
   "keywords": [
     "discord.js",
     "node.js",
-    "javascript"
+    "javascript",
+    "template",
+    "UNLICENSE"
   ]
 }
